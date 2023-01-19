@@ -2,9 +2,13 @@ cmake_minimum_required(VERSION 3.1)
 set(CMAKE_C_STANDARD 11)
 
 add_subdirectory(chipmunk)
+add_subdirectory(box2d)
 
 add_executable(tree-perf
 	main.c
+	brute_test.c
+	chipmunk_test.c
+	box2d_test.cpp
 )
 
 target_include_directories(tree-perf PRIVATE
@@ -13,6 +17,7 @@ target_include_directories(tree-perf PRIVATE
 
 target_link_libraries(tree-perf
 	chipmunk
+	box2d
 )
 
 add_custom_command(
